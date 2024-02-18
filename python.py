@@ -43,24 +43,25 @@ while True:
 
     choice = input("Enter your choice: ")
 
-    if choice == '1':
-        name = input("Enter student's name: ")
-        age = int(input("Enter student's age: "))
-        course = input("Enter student's course: ")
-        app.add_student(name, age, course)
-    elif choice == '2':
-        id = int(input("Enter student's id to delete: "))  
-        app.remove_student(id)
-    elif choice == '3':
-        id = int(input("Enter student's id to update: "))
-        new_name = input("Enter student's name:  ")
-        new_age = int(input("Enter new age: "))
-        new_course = input("Enter new course: ")
-        app.update_student_info(id, new_name, new_age, new_course)
-    elif choice == '4':
-        app.display_students_info()
-    elif choice == '5':
-        print("Exiting the program.")
-        break
-    else:
-        print("Invalid choice. Please enter a valid option.")
+    match choice:
+        case 1:
+            name = input("Enter student's name: ")
+            age = int(input("Enter student's age: "))
+            course = input("Enter student's course: ")
+            app.add_student(name, age, course)
+        case '2':
+            id = int(input("Enter student's id to delete: "))  
+            app.remove_student(id)
+        case '3':
+            id = int(input("Enter student's id to update: "))
+            new_name = input("Enter student's name:  ")
+            new_age = int(input("Enter new age: "))
+            new_course = input("Enter new course: ")
+            app.update_student_info(id, new_name, new_age, new_course)
+        case '4':
+            app.display_students_info()
+        case '5':
+            print("Exiting the program.")
+            break
+        case _:
+            print("Invalid choice. Please enter a valid option.")
